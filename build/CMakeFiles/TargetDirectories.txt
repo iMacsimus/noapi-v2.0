@@ -1,0 +1,4 @@
+/home/imacsimus/MyProjects/noapi2/build/CMakeFiles/minapi.dir
+/home/imacsimus/MyProjects/noapi2/build/CMakeFiles/litemath.dir
+/home/imacsimus/MyProjects/noapi2/build/CMakeFiles/edit_cache.dir
+/home/imacsimus/MyProjects/noapi2/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,1 @@
+/usr/bin/g++  -std=c++11 -O3 -DNDEBUG CMakeFiles/minapi.dir/src/main.cpp.o -o minapi  liblitemath.a 
