@@ -117,17 +117,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named minapi
+# Target rules for targets named noapi
 
 # Build rule for target.
-minapi: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minapi
-.PHONY : minapi
+noapi: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 noapi
+.PHONY : noapi
 
 # fast build rule for target.
-minapi/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minapi.dir/build.make CMakeFiles/minapi.dir/build
-.PHONY : minapi/fast
+noapi/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/noapi.dir/build.make CMakeFiles/noapi.dir/build
+.PHONY : noapi/fast
 
 #=============================================================================
 # Target rules for targets named litemath
@@ -141,6 +141,43 @@ litemath: cmake_check_build_system
 litemath/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/litemath.dir/build.make CMakeFiles/litemath.dir/build
 .PHONY : litemath/fast
+
+#=============================================================================
+# Target rules for targets named simple_triangle
+
+# Build rule for target.
+simple_triangle: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 simple_triangle
+.PHONY : simple_triangle
+
+# fast build rule for target.
+simple_triangle/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_triangle.dir/build.make CMakeFiles/simple_triangle.dir/build
+.PHONY : simple_triangle/fast
+
+examples/simple_triangle.o: examples/simple_triangle.cpp.o
+.PHONY : examples/simple_triangle.o
+
+# target to build an object file
+examples/simple_triangle.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_triangle.dir/build.make CMakeFiles/simple_triangle.dir/examples/simple_triangle.cpp.o
+.PHONY : examples/simple_triangle.cpp.o
+
+examples/simple_triangle.i: examples/simple_triangle.cpp.i
+.PHONY : examples/simple_triangle.i
+
+# target to preprocess a source file
+examples/simple_triangle.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_triangle.dir/build.make CMakeFiles/simple_triangle.dir/examples/simple_triangle.cpp.i
+.PHONY : examples/simple_triangle.cpp.i
+
+examples/simple_triangle.s: examples/simple_triangle.cpp.s
+.PHONY : examples/simple_triangle.s
+
+# target to generate assembly for a file
+examples/simple_triangle.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_triangle.dir/build.make CMakeFiles/simple_triangle.dir/examples/simple_triangle.cpp.s
+.PHONY : examples/simple_triangle.cpp.s
 
 external/litemath/Image2d.o: external/litemath/Image2d.cpp.o
 .PHONY : external/litemath/Image2d.o
@@ -166,29 +203,29 @@ external/litemath/Image2d.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/litemath.dir/build.make CMakeFiles/litemath.dir/external/litemath/Image2d.cpp.s
 .PHONY : external/litemath/Image2d.cpp.s
 
-src/main.o: src/main.cpp.o
-.PHONY : src/main.o
+src/dummy.o: src/dummy.cpp.o
+.PHONY : src/dummy.o
 
 # target to build an object file
-src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minapi.dir/build.make CMakeFiles/minapi.dir/src/main.cpp.o
-.PHONY : src/main.cpp.o
+src/dummy.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/noapi.dir/build.make CMakeFiles/noapi.dir/src/dummy.cpp.o
+.PHONY : src/dummy.cpp.o
 
-src/main.i: src/main.cpp.i
-.PHONY : src/main.i
+src/dummy.i: src/dummy.cpp.i
+.PHONY : src/dummy.i
 
 # target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minapi.dir/build.make CMakeFiles/minapi.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
+src/dummy.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/noapi.dir/build.make CMakeFiles/noapi.dir/src/dummy.cpp.i
+.PHONY : src/dummy.cpp.i
 
-src/main.s: src/main.cpp.s
-.PHONY : src/main.s
+src/dummy.s: src/dummy.cpp.s
+.PHONY : src/dummy.s
 
 # target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minapi.dir/build.make CMakeFiles/minapi.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
+src/dummy.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/noapi.dir/build.make CMakeFiles/noapi.dir/src/dummy.cpp.s
+.PHONY : src/dummy.cpp.s
 
 # Help Target
 help:
@@ -199,13 +236,17 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... litemath"
-	@echo "... minapi"
+	@echo "... noapi"
+	@echo "... simple_triangle"
+	@echo "... examples/simple_triangle.o"
+	@echo "... examples/simple_triangle.i"
+	@echo "... examples/simple_triangle.s"
 	@echo "... external/litemath/Image2d.o"
 	@echo "... external/litemath/Image2d.i"
 	@echo "... external/litemath/Image2d.s"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
+	@echo "... src/dummy.o"
+	@echo "... src/dummy.i"
+	@echo "... src/dummy.s"
 .PHONY : help
 
 

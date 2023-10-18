@@ -43,6 +43,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/minapi.dir/DependInfo.cmake"
+  "CMakeFiles/noapi.dir/DependInfo.cmake"
   "CMakeFiles/litemath.dir/DependInfo.cmake"
+  "CMakeFiles/simple_triangle.dir/DependInfo.cmake"
   )

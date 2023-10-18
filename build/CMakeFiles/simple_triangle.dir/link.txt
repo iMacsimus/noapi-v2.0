@@ -1,0 +1,1 @@
+/usr/bin/g++  -std=c++11 -O3 -DNDEBUG CMakeFiles/simple_triangle.dir/examples/simple_triangle.cpp.o -o simple_triangle  libnoapi.a liblitemath.a 

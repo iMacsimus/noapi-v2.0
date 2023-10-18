@@ -1,1 +1,2 @@
-/usr/bin/g++  -std=c++11 -O3 -DNDEBUG CMakeFiles/minapi.dir/src/main.cpp.o -o minapi  liblitemath.a 
+/usr/bin/ar qc libminapi.a CMakeFiles/minapi.dir/src/dummy.cpp.o
+/usr/bin/ranlib libminapi.a

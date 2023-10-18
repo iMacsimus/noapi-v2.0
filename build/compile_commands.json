@@ -6,7 +6,12 @@
 },
 {
   "directory": "/home/imacsimus/MyProjects/noapi-v2.0/build",
-  "command": "/usr/bin/g++  -I/home/imacsimus/MyProjects/noapi-v2.0/src -I/home/imacsimus/MyProjects/noapi-v2.0/external/litemath  -std=c++11 -O3 -DNDEBUG -o CMakeFiles/minapi.dir/src/main.cpp.o -c /home/imacsimus/MyProjects/noapi-v2.0/src/main.cpp",
-  "file": "/home/imacsimus/MyProjects/noapi-v2.0/src/main.cpp"
+  "command": "/usr/bin/g++  -I/home/imacsimus/MyProjects/noapi-v2.0/include -I/home/imacsimus/MyProjects/noapi-v2.0/external/litemath  -std=c++11 -O3 -DNDEBUG -o CMakeFiles/noapi.dir/src/dummy.cpp.o -c /home/imacsimus/MyProjects/noapi-v2.0/src/dummy.cpp",
+  "file": "/home/imacsimus/MyProjects/noapi-v2.0/src/dummy.cpp"
+},
+{
+  "directory": "/home/imacsimus/MyProjects/noapi-v2.0/build",
+  "command": "/usr/bin/g++  -I/home/imacsimus/MyProjects/noapi-v2.0/include -I/home/imacsimus/MyProjects/noapi-v2.0/external/litemath  -std=c++11 -O3 -DNDEBUG -o CMakeFiles/simple_triangle.dir/examples/simple_triangle.cpp.o -c /home/imacsimus/MyProjects/noapi-v2.0/examples/simple_triangle.cpp",
+  "file": "/home/imacsimus/MyProjects/noapi-v2.0/examples/simple_triangle.cpp"
 }
 ]

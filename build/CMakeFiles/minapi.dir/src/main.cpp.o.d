@@ -1,7 +1,7 @@
 CMakeFiles/minapi.dir/src/main.cpp.o: \
  /home/imacsimus/MyProjects/noapi-v2.0/src/main.cpp \
  /usr/include/stdc-predef.h \
- /home/imacsimus/MyProjects/noapi-v2.0/src/cpuvsps.h \
+ /home/imacsimus/MyProjects/noapi-v2.0/include/noapi/cpuvsps.h \
  /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -118,7 +118,7 @@ CMakeFiles/minapi.dir/src/main.cpp.o: \
  /usr/include/c++/11/bits/atomic_base.h \
  /usr/include/c++/11/bits/atomic_lockfree_defines.h \
  /usr/include/c++/11/backward/auto_ptr.h \
- /home/imacsimus/MyProjects/noapi-v2.0/src/integer_sequence.h \
+ /home/imacsimus/MyProjects/noapi-v2.0/include/noapi/integer_sequence.h \
  /usr/include/c++/11/cstddef \
  /home/imacsimus/MyProjects/noapi-v2.0/external/litemath/LiteMath.h \
  /usr/include/c++/11/cstdint /usr/include/c++/11/cmath \
@@ -175,8 +175,8 @@ CMakeFiles/minapi.dir/src/main.cpp.o: \
  /usr/include/c++/11/bits/charconv.h \
  /usr/include/c++/11/bits/basic_string.tcc /usr/include/c++/11/cassert \
  /usr/include/assert.h \
- /home/imacsimus/MyProjects/noapi-v2.0/src/IShader.h \
- /home/imacsimus/MyProjects/noapi-v2.0/src/common_structures.h \
+ /home/imacsimus/MyProjects/noapi-v2.0/include/noapi/IShader.h \
+ /home/imacsimus/MyProjects/noapi-v2.0/include/noapi/common_structures.h \
  /usr/include/c++/11/iostream /usr/include/c++/11/ostream \
  /usr/include/c++/11/ios /usr/include/c++/11/bits/ios_base.h \
  /usr/include/c++/11/bits/locale_classes.h \

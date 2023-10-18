@@ -63,8 +63,9 @@ CMAKE_BINARY_DIR = /home/imacsimus/MyProjects/noapi-v2.0/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/minapi.dir/all
+all: CMakeFiles/noapi.dir/all
 all: CMakeFiles/litemath.dir/all
+all: CMakeFiles/simple_triangle.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -72,35 +73,36 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/minapi.dir/clean
+clean: CMakeFiles/noapi.dir/clean
 clean: CMakeFiles/litemath.dir/clean
+clean: CMakeFiles/simple_triangle.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/minapi.dir
+# Target rules for target CMakeFiles/noapi.dir
 
 # All Build rule for target.
-CMakeFiles/minapi.dir/all: CMakeFiles/litemath.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minapi.dir/build.make CMakeFiles/minapi.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minapi.dir/build.make CMakeFiles/minapi.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles --progress-num=3,4 "Built target minapi"
-.PHONY : CMakeFiles/minapi.dir/all
+CMakeFiles/noapi.dir/all: CMakeFiles/litemath.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/noapi.dir/build.make CMakeFiles/noapi.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/noapi.dir/build.make CMakeFiles/noapi.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles --progress-num=3,4 "Built target noapi"
+.PHONY : CMakeFiles/noapi.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/minapi.dir/rule: cmake_check_build_system
+CMakeFiles/noapi.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/minapi.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/noapi.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles 0
-.PHONY : CMakeFiles/minapi.dir/rule
+.PHONY : CMakeFiles/noapi.dir/rule
 
 # Convenience name for target.
-minapi: CMakeFiles/minapi.dir/rule
-.PHONY : minapi
+noapi: CMakeFiles/noapi.dir/rule
+.PHONY : noapi
 
 # clean rule for target.
-CMakeFiles/minapi.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minapi.dir/build.make CMakeFiles/minapi.dir/clean
-.PHONY : CMakeFiles/minapi.dir/clean
+CMakeFiles/noapi.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/noapi.dir/build.make CMakeFiles/noapi.dir/clean
+.PHONY : CMakeFiles/noapi.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/litemath.dir
@@ -127,6 +129,33 @@ litemath: CMakeFiles/litemath.dir/rule
 CMakeFiles/litemath.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/litemath.dir/build.make CMakeFiles/litemath.dir/clean
 .PHONY : CMakeFiles/litemath.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/simple_triangle.dir
+
+# All Build rule for target.
+CMakeFiles/simple_triangle.dir/all: CMakeFiles/noapi.dir/all
+CMakeFiles/simple_triangle.dir/all: CMakeFiles/litemath.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_triangle.dir/build.make CMakeFiles/simple_triangle.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_triangle.dir/build.make CMakeFiles/simple_triangle.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles --progress-num=5,6 "Built target simple_triangle"
+.PHONY : CMakeFiles/simple_triangle.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/simple_triangle.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/simple_triangle.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles 0
+.PHONY : CMakeFiles/simple_triangle.dir/rule
+
+# Convenience name for target.
+simple_triangle: CMakeFiles/simple_triangle.dir/rule
+.PHONY : simple_triangle
+
+# clean rule for target.
+CMakeFiles/simple_triangle.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_triangle.dir/build.make CMakeFiles/simple_triangle.dir/clean
+.PHONY : CMakeFiles/simple_triangle.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

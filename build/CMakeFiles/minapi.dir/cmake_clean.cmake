@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/minapi.dir/src/main.cpp.o"
-  "CMakeFiles/minapi.dir/src/main.cpp.o.d"
-  "minapi"
-  "minapi.pdb"
+  "CMakeFiles/minapi.dir/src/dummy.cpp.o"
+  "CMakeFiles/minapi.dir/src/dummy.cpp.o.d"
+  "libminapi.a"
+  "libminapi.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

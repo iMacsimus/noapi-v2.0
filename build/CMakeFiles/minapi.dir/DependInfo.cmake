@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/imacsimus/MyProjects/noapi-v2.0/src/main.cpp" "CMakeFiles/minapi.dir/src/main.cpp.o" "gcc" "CMakeFiles/minapi.dir/src/main.cpp.o.d"
+  "/home/imacsimus/MyProjects/noapi-v2.0/src/dummy.cpp" "CMakeFiles/minapi.dir/src/dummy.cpp.o" "gcc" "CMakeFiles/minapi.dir/src/dummy.cpp.o.d"
   )
 
 # Targets to which this target links.
