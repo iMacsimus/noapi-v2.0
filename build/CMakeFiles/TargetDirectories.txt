@@ -1,5 +1,8 @@
 /home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles/noapi.dir
 /home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles/litemath.dir
+/home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles/obj_loader.dir
 /home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles/simple_triangle.dir
+/home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles/textured_cube.dir
+/home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles/shadowed_scene.dir
 /home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles/edit_cache.dir
 /home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles/rebuild_cache.dir

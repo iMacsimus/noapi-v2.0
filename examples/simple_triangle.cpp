@@ -84,7 +84,7 @@ int main(int argc, char **argv)
     auto program = make_cpu_vsps_shader<SimpleShader>(argv[0]);
     program->set_vertex_arrays(positions, colors);
     program->set_index_array(indices);
-    program->set_viewport(0, 0, 1920, 1080);
+    program->set_viewport(0, 0, w, h);
 
     float sum = 0;
     int count = 100;

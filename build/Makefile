@@ -143,6 +143,19 @@ litemath/fast:
 .PHONY : litemath/fast
 
 #=============================================================================
+# Target rules for targets named obj_loader
+
+# Build rule for target.
+obj_loader: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 obj_loader
+.PHONY : obj_loader
+
+# fast build rule for target.
+obj_loader/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obj_loader.dir/build.make CMakeFiles/obj_loader.dir/build
+.PHONY : obj_loader/fast
+
+#=============================================================================
 # Target rules for targets named simple_triangle
 
 # Build rule for target.
@@ -154,6 +167,56 @@ simple_triangle: cmake_check_build_system
 simple_triangle/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_triangle.dir/build.make CMakeFiles/simple_triangle.dir/build
 .PHONY : simple_triangle/fast
+
+#=============================================================================
+# Target rules for targets named textured_cube
+
+# Build rule for target.
+textured_cube: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 textured_cube
+.PHONY : textured_cube
+
+# fast build rule for target.
+textured_cube/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/textured_cube.dir/build.make CMakeFiles/textured_cube.dir/build
+.PHONY : textured_cube/fast
+
+#=============================================================================
+# Target rules for targets named shadowed_scene
+
+# Build rule for target.
+shadowed_scene: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 shadowed_scene
+.PHONY : shadowed_scene
+
+# fast build rule for target.
+shadowed_scene/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shadowed_scene.dir/build.make CMakeFiles/shadowed_scene.dir/build
+.PHONY : shadowed_scene/fast
+
+examples/shadowed_scene.o: examples/shadowed_scene.cpp.o
+.PHONY : examples/shadowed_scene.o
+
+# target to build an object file
+examples/shadowed_scene.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shadowed_scene.dir/build.make CMakeFiles/shadowed_scene.dir/examples/shadowed_scene.cpp.o
+.PHONY : examples/shadowed_scene.cpp.o
+
+examples/shadowed_scene.i: examples/shadowed_scene.cpp.i
+.PHONY : examples/shadowed_scene.i
+
+# target to preprocess a source file
+examples/shadowed_scene.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shadowed_scene.dir/build.make CMakeFiles/shadowed_scene.dir/examples/shadowed_scene.cpp.i
+.PHONY : examples/shadowed_scene.cpp.i
+
+examples/shadowed_scene.s: examples/shadowed_scene.cpp.s
+.PHONY : examples/shadowed_scene.s
+
+# target to generate assembly for a file
+examples/shadowed_scene.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shadowed_scene.dir/build.make CMakeFiles/shadowed_scene.dir/examples/shadowed_scene.cpp.s
+.PHONY : examples/shadowed_scene.cpp.s
 
 examples/simple_triangle.o: examples/simple_triangle.cpp.o
 .PHONY : examples/simple_triangle.o
@@ -178,6 +241,54 @@ examples/simple_triangle.s: examples/simple_triangle.cpp.s
 examples/simple_triangle.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_triangle.dir/build.make CMakeFiles/simple_triangle.dir/examples/simple_triangle.cpp.s
 .PHONY : examples/simple_triangle.cpp.s
+
+examples/textured_cube.o: examples/textured_cube.cpp.o
+.PHONY : examples/textured_cube.o
+
+# target to build an object file
+examples/textured_cube.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/textured_cube.dir/build.make CMakeFiles/textured_cube.dir/examples/textured_cube.cpp.o
+.PHONY : examples/textured_cube.cpp.o
+
+examples/textured_cube.i: examples/textured_cube.cpp.i
+.PHONY : examples/textured_cube.i
+
+# target to preprocess a source file
+examples/textured_cube.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/textured_cube.dir/build.make CMakeFiles/textured_cube.dir/examples/textured_cube.cpp.i
+.PHONY : examples/textured_cube.cpp.i
+
+examples/textured_cube.s: examples/textured_cube.cpp.s
+.PHONY : examples/textured_cube.s
+
+# target to generate assembly for a file
+examples/textured_cube.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/textured_cube.dir/build.make CMakeFiles/textured_cube.dir/examples/textured_cube.cpp.s
+.PHONY : examples/textured_cube.cpp.s
+
+examples/utils/obj_loader/Mesh.o: examples/utils/obj_loader/Mesh.cpp.o
+.PHONY : examples/utils/obj_loader/Mesh.o
+
+# target to build an object file
+examples/utils/obj_loader/Mesh.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obj_loader.dir/build.make CMakeFiles/obj_loader.dir/examples/utils/obj_loader/Mesh.cpp.o
+.PHONY : examples/utils/obj_loader/Mesh.cpp.o
+
+examples/utils/obj_loader/Mesh.i: examples/utils/obj_loader/Mesh.cpp.i
+.PHONY : examples/utils/obj_loader/Mesh.i
+
+# target to preprocess a source file
+examples/utils/obj_loader/Mesh.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obj_loader.dir/build.make CMakeFiles/obj_loader.dir/examples/utils/obj_loader/Mesh.cpp.i
+.PHONY : examples/utils/obj_loader/Mesh.cpp.i
+
+examples/utils/obj_loader/Mesh.s: examples/utils/obj_loader/Mesh.cpp.s
+.PHONY : examples/utils/obj_loader/Mesh.s
+
+# target to generate assembly for a file
+examples/utils/obj_loader/Mesh.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obj_loader.dir/build.make CMakeFiles/obj_loader.dir/examples/utils/obj_loader/Mesh.cpp.s
+.PHONY : examples/utils/obj_loader/Mesh.cpp.s
 
 external/litemath/Image2d.o: external/litemath/Image2d.cpp.o
 .PHONY : external/litemath/Image2d.o
@@ -237,10 +348,22 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... litemath"
 	@echo "... noapi"
+	@echo "... obj_loader"
+	@echo "... shadowed_scene"
 	@echo "... simple_triangle"
+	@echo "... textured_cube"
+	@echo "... examples/shadowed_scene.o"
+	@echo "... examples/shadowed_scene.i"
+	@echo "... examples/shadowed_scene.s"
 	@echo "... examples/simple_triangle.o"
 	@echo "... examples/simple_triangle.i"
 	@echo "... examples/simple_triangle.s"
+	@echo "... examples/textured_cube.o"
+	@echo "... examples/textured_cube.i"
+	@echo "... examples/textured_cube.s"
+	@echo "... examples/utils/obj_loader/Mesh.o"
+	@echo "... examples/utils/obj_loader/Mesh.i"
+	@echo "... examples/utils/obj_loader/Mesh.s"
 	@echo "... external/litemath/Image2d.o"
 	@echo "... external/litemath/Image2d.i"
 	@echo "... external/litemath/Image2d.s"

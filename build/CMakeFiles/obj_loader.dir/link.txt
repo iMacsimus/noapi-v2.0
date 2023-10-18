@@ -1,0 +1,2 @@
+/usr/bin/ar qc libobj_loader.a CMakeFiles/obj_loader.dir/examples/utils/obj_loader/Mesh.cpp.o
+/usr/bin/ranlib libobj_loader.a

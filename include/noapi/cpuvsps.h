@@ -59,7 +59,7 @@ z_test( //change z_buffer side effect
         LiteImage::Image2D<float> *z_buf)
 {
     if (!z_buf) return true;
-    if (cur_z > (*z_buf)[LiteMath::uint2{x, y}]) {
+    if (1.0f/cur_z < 1.0f/(*z_buf)[LiteMath::uint2{x, y}]) {
         (*z_buf)[LiteMath::uint2{x, y}] = cur_z; //side effect here
         return true;
     }
@@ -156,10 +156,10 @@ public:
 
                 if (inside_of_triangle(barycentric) && 
                         z_test(x, y, interpolated_1_w, fb.zbuf)) {
-                    VariablesData interpolated = Shader::interpolate(vd, barycentric, interpolated_1_w);
-                    LiteMath::float4 res = Shader::pixel_shader(interpolated, uniforms) * 255.0f;
                     if (fb.color_buf) {
                         uint inversed_y = fb.color_buf->height() - y;
+                        VariablesData interpolated = Shader::interpolate(vd, barycentric, interpolated_1_w);
+                        LiteMath::float4 res = Shader::pixel_shader(interpolated, uniforms) * 255.0f;
                         (*fb.color_buf)[LiteMath::uint2{x, inversed_y}] = LiteMath::uchar4
                         { 
                             (LiteMath::uchar)res.x, 

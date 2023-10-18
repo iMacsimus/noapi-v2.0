@@ -45,5 +45,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/noapi.dir/DependInfo.cmake"
   "CMakeFiles/litemath.dir/DependInfo.cmake"
+  "CMakeFiles/obj_loader.dir/DependInfo.cmake"
   "CMakeFiles/simple_triangle.dir/DependInfo.cmake"
+  "CMakeFiles/textured_cube.dir/DependInfo.cmake"
+  "CMakeFiles/shadowed_scene.dir/DependInfo.cmake"
   )

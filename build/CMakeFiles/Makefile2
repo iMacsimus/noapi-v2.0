@@ -65,7 +65,10 @@ CMAKE_BINARY_DIR = /home/imacsimus/MyProjects/noapi-v2.0/build
 # The main recursive "all" target.
 all: CMakeFiles/noapi.dir/all
 all: CMakeFiles/litemath.dir/all
+all: CMakeFiles/obj_loader.dir/all
 all: CMakeFiles/simple_triangle.dir/all
+all: CMakeFiles/textured_cube.dir/all
+all: CMakeFiles/shadowed_scene.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -75,7 +78,10 @@ preinstall:
 # The main recursive "clean" target.
 clean: CMakeFiles/noapi.dir/clean
 clean: CMakeFiles/litemath.dir/clean
+clean: CMakeFiles/obj_loader.dir/clean
 clean: CMakeFiles/simple_triangle.dir/clean
+clean: CMakeFiles/textured_cube.dir/clean
+clean: CMakeFiles/shadowed_scene.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -131,6 +137,32 @@ CMakeFiles/litemath.dir/clean:
 .PHONY : CMakeFiles/litemath.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/obj_loader.dir
+
+# All Build rule for target.
+CMakeFiles/obj_loader.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obj_loader.dir/build.make CMakeFiles/obj_loader.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obj_loader.dir/build.make CMakeFiles/obj_loader.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles --progress-num=5,6 "Built target obj_loader"
+.PHONY : CMakeFiles/obj_loader.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/obj_loader.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/obj_loader.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles 0
+.PHONY : CMakeFiles/obj_loader.dir/rule
+
+# Convenience name for target.
+obj_loader: CMakeFiles/obj_loader.dir/rule
+.PHONY : obj_loader
+
+# clean rule for target.
+CMakeFiles/obj_loader.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obj_loader.dir/build.make CMakeFiles/obj_loader.dir/clean
+.PHONY : CMakeFiles/obj_loader.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/simple_triangle.dir
 
 # All Build rule for target.
@@ -138,7 +170,7 @@ CMakeFiles/simple_triangle.dir/all: CMakeFiles/noapi.dir/all
 CMakeFiles/simple_triangle.dir/all: CMakeFiles/litemath.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_triangle.dir/build.make CMakeFiles/simple_triangle.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_triangle.dir/build.make CMakeFiles/simple_triangle.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles --progress-num=5,6 "Built target simple_triangle"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles --progress-num=9,10 "Built target simple_triangle"
 .PHONY : CMakeFiles/simple_triangle.dir/all
 
 # Build rule for subdir invocation for target.
@@ -156,6 +188,62 @@ simple_triangle: CMakeFiles/simple_triangle.dir/rule
 CMakeFiles/simple_triangle.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_triangle.dir/build.make CMakeFiles/simple_triangle.dir/clean
 .PHONY : CMakeFiles/simple_triangle.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/textured_cube.dir
+
+# All Build rule for target.
+CMakeFiles/textured_cube.dir/all: CMakeFiles/noapi.dir/all
+CMakeFiles/textured_cube.dir/all: CMakeFiles/obj_loader.dir/all
+CMakeFiles/textured_cube.dir/all: CMakeFiles/litemath.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/textured_cube.dir/build.make CMakeFiles/textured_cube.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/textured_cube.dir/build.make CMakeFiles/textured_cube.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles --progress-num=11,12 "Built target textured_cube"
+.PHONY : CMakeFiles/textured_cube.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/textured_cube.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles 8
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/textured_cube.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles 0
+.PHONY : CMakeFiles/textured_cube.dir/rule
+
+# Convenience name for target.
+textured_cube: CMakeFiles/textured_cube.dir/rule
+.PHONY : textured_cube
+
+# clean rule for target.
+CMakeFiles/textured_cube.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/textured_cube.dir/build.make CMakeFiles/textured_cube.dir/clean
+.PHONY : CMakeFiles/textured_cube.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/shadowed_scene.dir
+
+# All Build rule for target.
+CMakeFiles/shadowed_scene.dir/all: CMakeFiles/noapi.dir/all
+CMakeFiles/shadowed_scene.dir/all: CMakeFiles/obj_loader.dir/all
+CMakeFiles/shadowed_scene.dir/all: CMakeFiles/litemath.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shadowed_scene.dir/build.make CMakeFiles/shadowed_scene.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shadowed_scene.dir/build.make CMakeFiles/shadowed_scene.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles --progress-num=7,8 "Built target shadowed_scene"
+.PHONY : CMakeFiles/shadowed_scene.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/shadowed_scene.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles 8
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/shadowed_scene.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles 0
+.PHONY : CMakeFiles/shadowed_scene.dir/rule
+
+# Convenience name for target.
+shadowed_scene: CMakeFiles/shadowed_scene.dir/rule
+.PHONY : shadowed_scene
+
+# clean rule for target.
+CMakeFiles/shadowed_scene.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shadowed_scene.dir/build.make CMakeFiles/shadowed_scene.dir/clean
+.PHONY : CMakeFiles/shadowed_scene.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
