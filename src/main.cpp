@@ -83,14 +83,16 @@ int main(int argc, char **argv)
 
     auto program = make_cpu_vsps_shader<SimpleShader>(argv[0]);
     program->set_vertex_arrays(positions, colors);
-    program->set_index_array(indices, 3);
+    program->set_index_array(indices);
     program->set_viewport(0, 0, 1920, 1080);
 
     float sum = 0;
     int count = 100;
     for (int i = 0; i < count; ++i) {
+        image.clear(0);
+        zbuf.clear(0);
         auto b = std::chrono::high_resolution_clock::now();
-        program->draw(Framebuffer{ &image, &zbuf });
+        program->draw_triangles(3, Framebuffer{ &image, &zbuf });
         auto e = std::chrono::high_resolution_clock::now();
         sum += std::chrono::duration_cast<std::chrono::microseconds>(e-b).count() / 1000.0f;
     }

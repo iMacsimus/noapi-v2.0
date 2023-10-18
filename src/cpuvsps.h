@@ -59,7 +59,7 @@ z_test( //change z_buffer side effect
         LiteImage::Image2D<float> *z_buf)
 {
     if (!z_buf) return true;
-    if (1.0f / cur_z < 1.0f / (*z_buf)[LiteMath::uint2{x, y}]) {
+    if (cur_z > (*z_buf)[LiteMath::uint2{x, y}]) {
         (*z_buf)[LiteMath::uint2{x, y}] = cur_z; //side effect here
         return true;
     }
@@ -106,7 +106,7 @@ public:
     {
         uniforms = *(Uniforms*)uniform_struct_ptr;
     }
-    void draw(Framebuffer fb) override
+    void draw_triangles(size_t elements_count, Framebuffer fb) override
     {
         triangles.reserve(std::max(triangles.capacity(), elements_count));
         triangles.clear();

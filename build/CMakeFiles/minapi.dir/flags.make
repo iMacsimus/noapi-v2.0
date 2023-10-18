@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/imacsimus/MyProjects/noapi-v2.0/src -I/home/imacsimus/MyProjects/noapi-v2.0/external/litemath
 
-CXX_FLAGS =  -std=c++11 -g
+CXX_FLAGS =  -std=c++11 -O3 -DNDEBUG
 

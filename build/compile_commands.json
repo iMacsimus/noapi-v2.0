@@ -1,12 +1,12 @@
 [
 {
   "directory": "/home/imacsimus/MyProjects/noapi-v2.0/build",
-  "command": "/usr/bin/g++    -std=c++11 -g -o CMakeFiles/litemath.dir/external/litemath/Image2d.cpp.o -c /home/imacsimus/MyProjects/noapi-v2.0/external/litemath/Image2d.cpp",
+  "command": "/usr/bin/g++    -std=c++11 -O3 -DNDEBUG -o CMakeFiles/litemath.dir/external/litemath/Image2d.cpp.o -c /home/imacsimus/MyProjects/noapi-v2.0/external/litemath/Image2d.cpp",
   "file": "/home/imacsimus/MyProjects/noapi-v2.0/external/litemath/Image2d.cpp"
 },
 {
   "directory": "/home/imacsimus/MyProjects/noapi-v2.0/build",
-  "command": "/usr/bin/g++  -I/home/imacsimus/MyProjects/noapi-v2.0/src -I/home/imacsimus/MyProjects/noapi-v2.0/external/litemath  -std=c++11 -g -o CMakeFiles/minapi.dir/src/main.cpp.o -c /home/imacsimus/MyProjects/noapi-v2.0/src/main.cpp",
+  "command": "/usr/bin/g++  -I/home/imacsimus/MyProjects/noapi-v2.0/src -I/home/imacsimus/MyProjects/noapi-v2.0/external/litemath  -std=c++11 -O3 -DNDEBUG -o CMakeFiles/minapi.dir/src/main.cpp.o -c /home/imacsimus/MyProjects/noapi-v2.0/src/main.cpp",
   "file": "/home/imacsimus/MyProjects/noapi-v2.0/src/main.cpp"
 }
 ]
