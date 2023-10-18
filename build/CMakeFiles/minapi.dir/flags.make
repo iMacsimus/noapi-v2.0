@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/g++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/imacsimus/MyProjects/noapi2/src -I/home/imacsimus/MyProjects/noapi2/external/litemath
+CXX_INCLUDES = -I/home/imacsimus/MyProjects/noapi-v2.0/src -I/home/imacsimus/MyProjects/noapi-v2.0/external/litemath
 
-CXX_FLAGS =  -std=c++11 -O3 -DNDEBUG
+CXX_FLAGS =  -std=c++11 -g
 

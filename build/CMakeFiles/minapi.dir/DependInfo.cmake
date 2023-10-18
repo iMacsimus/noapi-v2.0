@@ -8,12 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/imacsimus/MyProjects/noapi2/src/main.cpp" "CMakeFiles/minapi.dir/src/main.cpp.o" "gcc" "CMakeFiles/minapi.dir/src/main.cpp.o.d"
+  "/home/imacsimus/MyProjects/noapi-v2.0/src/main.cpp" "CMakeFiles/minapi.dir/src/main.cpp.o" "gcc" "CMakeFiles/minapi.dir/src/main.cpp.o.d"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/imacsimus/MyProjects/noapi2/build/CMakeFiles/litemath.dir/DependInfo.cmake"
+  "/home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles/litemath.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

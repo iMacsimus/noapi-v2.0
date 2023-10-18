@@ -6,7 +6,7 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-Release-f5ebdc15457944623624.json",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.8"
@@ -20,7 +20,7 @@
 					]
 				}
 			],
-			"name" : "Release",
+			"name" : "Debug",
 			"projects" : 
 			[
 				{
@@ -41,14 +41,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "litemath::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-litemath-Release-34d874b9def60827173c.json",
+					"jsonFile" : "target-litemath-Debug-1bc55bae2544ae49e8f7.json",
 					"name" : "litemath",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "minapi::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-minapi-Release-eb05abbae07800a891e0.json",
+					"jsonFile" : "target-minapi-Debug-31f391f23a36945ec39e.json",
 					"name" : "minapi",
 					"projectIndex" : 0
 				}
@@ -58,8 +58,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/imacsimus/MyProjects/noapi2/build",
-		"source" : "/home/imacsimus/MyProjects/noapi2"
+		"build" : "/home/imacsimus/MyProjects/noapi-v2.0/build",
+		"source" : "/home/imacsimus/MyProjects/noapi-v2.0"
 	},
 	"version" : 
 	{

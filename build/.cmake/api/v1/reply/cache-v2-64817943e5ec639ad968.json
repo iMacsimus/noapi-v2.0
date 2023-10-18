@@ -43,7 +43,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "Release"
+			"value" : "Debug"
 		},
 		{
 			"name" : "CMAKE_CACHEFILE_DIR",
@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/imacsimus/MyProjects/noapi2/build"
+			"value" : "/home/imacsimus/MyProjects/noapi-v2.0/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -272,18 +272,6 @@
 			],
 			"type" : "STRING",
 			"value" : "-O2 -g -DNDEBUG"
-		},
-		{
-			"name" : "CMAKE_C_ABI_COMPILED",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Result of TRY_COMPILE"
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "FALSE"
 		},
 		{
 			"name" : "CMAKE_C_COMPILER",
@@ -603,7 +591,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/imacsimus/MyProjects/noapi2"
+			"value" : "/home/imacsimus/MyProjects/noapi-v2.0"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1102,6 +1090,18 @@
 			"value" : "/usr/bin/strip"
 		},
 		{
+			"name" : "CMAKE_UNAME",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "uname command"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "/usr/bin/uname"
+		},
+		{
 			"name" : "CMAKE_VERBOSE_MAKEFILE",
 			"properties" : 
 			[
@@ -1127,7 +1127,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/imacsimus/MyProjects/noapi2/build"
+			"value" : "/home/imacsimus/MyProjects/noapi-v2.0/build"
 		},
 		{
 			"name" : "minapi_IS_TOP_LEVEL",
@@ -1151,7 +1151,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/imacsimus/MyProjects/noapi2"
+			"value" : "/home/imacsimus/MyProjects/noapi-v2.0"
 		}
 	],
 	"kind" : "cache",

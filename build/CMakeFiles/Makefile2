@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/imacsimus/MyProjects/noapi2
+CMAKE_SOURCE_DIR = /home/imacsimus/MyProjects/noapi-v2.0
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/imacsimus/MyProjects/noapi2/build
+CMAKE_BINARY_DIR = /home/imacsimus/MyProjects/noapi-v2.0/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -83,14 +83,14 @@ clean: CMakeFiles/litemath.dir/clean
 CMakeFiles/minapi.dir/all: CMakeFiles/litemath.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/minapi.dir/build.make CMakeFiles/minapi.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/minapi.dir/build.make CMakeFiles/minapi.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/imacsimus/MyProjects/noapi2/build/CMakeFiles --progress-num=3,4 "Built target minapi"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles --progress-num=3,4 "Built target minapi"
 .PHONY : CMakeFiles/minapi.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/minapi.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/imacsimus/MyProjects/noapi2/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/minapi.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/imacsimus/MyProjects/noapi2/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles 0
 .PHONY : CMakeFiles/minapi.dir/rule
 
 # Convenience name for target.
@@ -109,14 +109,14 @@ CMakeFiles/minapi.dir/clean:
 CMakeFiles/litemath.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/litemath.dir/build.make CMakeFiles/litemath.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/litemath.dir/build.make CMakeFiles/litemath.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/imacsimus/MyProjects/noapi2/build/CMakeFiles --progress-num=1,2 "Built target litemath"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles --progress-num=1,2 "Built target litemath"
 .PHONY : CMakeFiles/litemath.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/litemath.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/imacsimus/MyProjects/noapi2/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/litemath.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/imacsimus/MyProjects/noapi2/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/imacsimus/MyProjects/noapi-v2.0/build/CMakeFiles 0
 .PHONY : CMakeFiles/litemath.dir/rule
 
 # Convenience name for target.

@@ -125,8 +125,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/home/imacsimus/MyProjects/noapi2/build",
-		"source" : "/home/imacsimus/MyProjects/noapi2"
+		"build" : "/home/imacsimus/MyProjects/noapi-v2.0/build",
+		"source" : "/home/imacsimus/MyProjects/noapi-v2.0"
 	},
 	"version" : 
 	{

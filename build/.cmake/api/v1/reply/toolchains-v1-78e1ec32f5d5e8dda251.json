@@ -8,10 +8,30 @@
 				"id" : "GNU",
 				"implicit" : 
 				{
-					"includeDirectories" : [],
-					"linkDirectories" : [],
+					"includeDirectories" : 
+					[
+						"/usr/lib/gcc/x86_64-linux-gnu/11/include",
+						"/usr/local/include",
+						"/usr/include/x86_64-linux-gnu",
+						"/usr/include"
+					],
+					"linkDirectories" : 
+					[
+						"/usr/lib/gcc/x86_64-linux-gnu/11",
+						"/usr/lib/x86_64-linux-gnu",
+						"/usr/lib",
+						"/lib/x86_64-linux-gnu",
+						"/lib"
+					],
 					"linkFrameworkDirectories" : [],
-					"linkLibraries" : []
+					"linkLibraries" : 
+					[
+						"gcc",
+						"gcc_s",
+						"c",
+						"gcc",
+						"gcc_s"
+					]
 				},
 				"path" : "/usr/bin/gcc",
 				"version" : "11.4.0"
