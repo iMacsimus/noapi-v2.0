@@ -1,13 +1,13 @@
 #pragma once
 #include <vector>
 #include <memory>
+#include <iostream>
 
+#include <noapi/IShader.h>
 #include <noapi/integer_sequence.h>
 
 #include <LiteMath.h>
 #include <Image2d.h>
-
-#include <noapi/IShader.h>
 
 namespace noapi
 {
@@ -45,7 +45,7 @@ namespace noapi
     inline static float
     edge_function(const LiteMath::float4& a, const LiteMath::float4& b, const LiteMath::float4& p)
     {
-        return (p.x-a.x) * (b.y-a.y) - (p.y-a.y) * (b.x - a.x);
+        return (p.y-a.y) * (b.x - a.x) - (p.x-a.x) * (b.y-a.y);
     }
 
     inline static bool
@@ -143,19 +143,34 @@ namespace noapi
             Framebuffer &fb,
             const BoundingBox2d &bb)
         {
+            float I[3] =
+            {
+                sspos[1].y - sspos[2].y,
+                sspos[2].y - sspos[0].y,
+                sspos[0].y - sspos[1].y
+            };
+            float J[3] =
+            {
+                sspos[2].x - sspos[1].x,
+                sspos[0].x - sspos[2].x,
+                sspos[1].x - sspos[0].x
+            };
+            float K[3] =
+            {
+                sspos[1].x*sspos[2].y - sspos[1].y*sspos[2].x,
+                sspos[2].x*sspos[0].y - sspos[2].y*sspos[0].x,
+                sspos[0].x*sspos[1].y - sspos[0].y*sspos[1].x
+            };
+            float Cy1 = I[0]*float(bb.xmin+0.5f)+J[0]*float(bb.ymin+0.5f)+K[0];
+            float Cy2 = I[1]*float(bb.xmin+0.5f)+J[1]*float(bb.ymin+0.5f)+K[1];
+            float Cy3 = I[2]*float(bb.xmin+0.5f)+J[2]*float(bb.ymin+0.5f)+K[2];
             float tr_square = edge_function(sspos[0], sspos[1], sspos[2]);
-            for (uint x = bb.xmin; x <= bb.xmax; ++x) {
-                for (uint y = bb.ymin; y <= bb.ymax; ++y) {
-                    LiteMath::float4 point = { x+0.5f, y+0.5f, 0.0f, 0.0f };
-                    LiteMath::float3 barycentric = 
-                    {
-                        edge_function(sspos[1], sspos[2], point),
-                        edge_function(sspos[2], sspos[0], point),
-                        edge_function(sspos[0], sspos[1], point),
-                    };
+            for (uint y = bb.ymin; y <= bb.ymax; ++y) {
+                float Cx1 = Cy1, Cx2 = Cy2, Cx3 = Cy3;
+                for (uint x = bb.xmin; x <= bb.xmax; ++x) {
+                    LiteMath::float3 barycentric = { Cx1, Cx2, Cx3 };
                     barycentric /= tr_square;
                     float interpolated_1_w = sspos[0].z * barycentric[0] + sspos[1].z * barycentric[1] + sspos[2].z * barycentric[2];
-
                     if (inside_of_triangle(barycentric)
                             && z_test(x, y, interpolated_1_w, fb.zbuf) 
                             && fb.color_buf) {
@@ -170,7 +185,9 @@ namespace noapi
                             (LiteMath::uchar)res.w 
                         }.u32;
                     }
+                    Cx1 += I[0]; Cx2 += I[1]; Cx3 += I[2];
                 }
+                Cy1 += J[0]; Cy2 += J[1]; Cy3 += J[2];
             }
         }
     };
