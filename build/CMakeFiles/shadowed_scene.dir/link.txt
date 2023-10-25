@@ -1,1 +1,0 @@
-/usr/bin/g++  -std=c++11 -O3 -DNDEBUG CMakeFiles/shadowed_scene.dir/examples/shadowed_scene.cpp.o -o shadowed_scene  libnoapi.a libobj_loader.a liblitemath.a 

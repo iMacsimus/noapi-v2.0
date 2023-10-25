@@ -1,2 +1,0 @@
-/usr/bin/ar qc libnoapi.a CMakeFiles/noapi.dir/src/dummy.cpp.o
-/usr/bin/ranlib libnoapi.a

@@ -1,2 +1,0 @@
-/usr/bin/ar qc liblitemath.a CMakeFiles/litemath.dir/external/litemath/Image2d.cpp.o
-/usr/bin/ranlib liblitemath.a

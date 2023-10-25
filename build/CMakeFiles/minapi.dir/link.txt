@@ -1,2 +1,0 @@
-/usr/bin/ar qc libminapi.a CMakeFiles/minapi.dir/src/dummy.cpp.o
-/usr/bin/ranlib libminapi.a
