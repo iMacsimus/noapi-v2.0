@@ -6,6 +6,7 @@
 
 using namespace LiteMath;
 using namespace LiteImage;
+using namespace noapi;
 
 struct SimpleShader
 {

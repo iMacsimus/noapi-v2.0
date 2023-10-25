@@ -1,3 +1,6 @@
 build
 .vscode
-./*.bmp
+cube.bmp
+scene.bmp 
+triangle_result.bmp
+sm.bmp
