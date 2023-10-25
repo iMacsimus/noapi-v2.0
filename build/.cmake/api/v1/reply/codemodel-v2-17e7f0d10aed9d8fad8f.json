@@ -70,21 +70,21 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "shadowed_scene::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-shadowed_scene-Release-f40e508817efb6861209.json",
+					"jsonFile" : "target-shadowed_scene-Release-ed73d687fdd29ab20ebe.json",
 					"name" : "shadowed_scene",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "simple_triangle::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-simple_triangle-Release-c047a035b1849447b74b.json",
+					"jsonFile" : "target-simple_triangle-Release-6e31fb2d3f603f48064a.json",
 					"name" : "simple_triangle",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "textured_cube::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-textured_cube-Release-04b942211a45db1e9c12.json",
+					"jsonFile" : "target-textured_cube-Release-7e4646ae6b217732189e.json",
 					"name" : "textured_cube",
 					"projectIndex" : 0
 				}
@@ -100,6 +100,6 @@
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 3
+		"minor" : 6
 	}
 }
