@@ -164,7 +164,7 @@ namespace noapi
             float Cy1 = I[0]*float(bb.xmin+0.5f)+J[0]*float(bb.ymin+0.5f)+K[0];
             float Cy2 = I[1]*float(bb.xmin+0.5f)+J[1]*float(bb.ymin+0.5f)+K[1];
             float Cy3 = I[2]*float(bb.xmin+0.5f)+J[2]*float(bb.ymin+0.5f)+K[2];
-            float tr_square = edge_function(sspos[0], sspos[1], sspos[2]);
+            float tr_square = I[2]*sspos[2].x+J[2]*sspos[2].y+K[2];
             for (uint y = bb.ymin; y <= bb.ymax; ++y) {
                 float Cx1 = Cy1, Cx2 = Cy2, Cx3 = Cy3;
                 for (uint x = bb.xmin; x <= bb.xmax; ++x) {
