@@ -165,11 +165,13 @@ namespace noapi
             float Cy2 = I[1]*float(bb.xmin+0.5f)+J[1]*float(bb.ymin+0.5f)+K[1];
             float Cy3 = I[2]*float(bb.xmin+0.5f)+J[2]*float(bb.ymin+0.5f)+K[2];
             float tr_square = I[2]*sspos[2].x+J[2]*sspos[2].y+K[2];
+            I[0] /= tr_square; I[1] /= tr_square; I[2] /= tr_square;
+            J[0] /= tr_square; J[1] /= tr_square; J[2] /= tr_square;
+            Cy1 /= tr_square; Cy2 /= tr_square; Cy3 /= tr_square;
             for (uint y = bb.ymin; y <= bb.ymax; ++y) {
                 float Cx1 = Cy1, Cx2 = Cy2, Cx3 = Cy3;
                 for (uint x = bb.xmin; x <= bb.xmax; ++x) {
                     LiteMath::float3 barycentric = { Cx1, Cx2, Cx3 };
-                    barycentric /= tr_square;
                     float interpolated_1_w = sspos[0].z * barycentric[0] + sspos[1].z * barycentric[1] + sspos[2].z * barycentric[2];
                     if (inside_of_triangle(barycentric)
                             && z_test(x, y, interpolated_1_w, fb.zbuf) 
