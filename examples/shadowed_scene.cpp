@@ -176,6 +176,7 @@ int main(int argc, char **argv)
 
     auto tex_shader = make_cpu_vsps_shader<TexturedShader>(argv[0]);
     tex_shader->set_viewport(0, 0, w, h);
+    tex_shader->set_culling(CULL_BACK);
     auto sm_shader = make_cpu_vsps_shader<ShadowMapShader>(argv[0]);
     sm_shader->set_viewport(0, 0, shadowmap_resolution, shadowmap_resolution);
 
@@ -191,10 +192,6 @@ int main(int argc, char **argv)
         sm_shader->set_index_array(cubes.indices.data());
         sm_shader->set_uniform(&sm_uniforms);
         sm_shader->draw_triangles(cubes.indices.size(), Framebuffer{ nullptr, shadow_map.get() });
-        sm_shader->set_vertex_arrays(floor.vertices.data());
-        sm_shader->set_index_array(floor.indices.data());
-        sm_shader->set_uniform(&sm_uniforms);
-        sm_shader->draw_triangles(floor.indices.size(), Framebuffer{ nullptr, shadow_map.get() });
         //draw to framebuffer
         tex_shader->set_vertex_arrays(cubes.vertices.data(), cubes.tex_coords.data());
         tex_shader->set_index_array(cubes.indices.data());

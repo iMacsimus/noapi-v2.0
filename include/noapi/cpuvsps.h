@@ -83,6 +83,7 @@ namespace noapi
         Uniforms uniforms;
         BoundingBox2d viewport;
         std::vector<TriangleSet> triangles;
+        CullingMode culling_mode = DO_NOT_CULL;
     public:
         template<typename... Args>
         static constexpr size_t 
@@ -107,6 +108,10 @@ namespace noapi
         void set_uniform(void *uniform_struct_ptr) override 
         {
             uniforms = *(Uniforms*)uniform_struct_ptr;
+        }
+        void set_culling(CullingMode mode) override
+        {
+            culling_mode = mode;
         }
         void draw_triangles(size_t elements_count, Framebuffer fb) override
         {
@@ -165,6 +170,10 @@ namespace noapi
             float Cy2 = I[1]*float(bb.xmin+0.5f)+J[1]*float(bb.ymin+0.5f)+K[1];
             float Cy3 = I[2]*float(bb.xmin+0.5f)+J[2]*float(bb.ymin+0.5f)+K[2];
             float tr_square = I[2]*sspos[2].x+J[2]*sspos[2].y+K[2];
+            
+            //CULL
+            if ((int)culling_mode == (tr_square >= 0)) return;
+
             I[0] /= tr_square; I[1] /= tr_square; I[2] /= tr_square;
             J[0] /= tr_square; J[1] /= tr_square; J[2] /= tr_square;
             Cy1 /= tr_square; Cy2 /= tr_square; Cy3 /= tr_square;

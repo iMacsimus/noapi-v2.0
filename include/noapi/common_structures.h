@@ -15,4 +15,11 @@ namespace noapi
         LiteImage::Image2D<uint32_t> *color_buf = nullptr;
         LiteImage::Image2D<float> *zbuf = nullptr;
     };
+
+    enum CullingMode
+    {
+        CULL_BACK = 0,
+        CULL_FRONT = 1,
+        DO_NOT_CULL = 2
+    };
 }

@@ -92,6 +92,7 @@ int main(int argc, char **argv)
     program->set_vertex_arrays(cube.vertices.data(), cube.tex_coords.data());
     program->set_index_array(cube.indices.data());
     program->set_viewport(0, 0, w, h);
+    program->set_culling(CULL_BACK);
 
     TexturedShader::Uniforms uniforms;
     uniforms.view = lookAt(float3(5.0f, 2.0f, 5.0f), float3(0.0f), float3(0.0f, 1.0f, 0.0f));
