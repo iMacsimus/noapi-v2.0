@@ -19,7 +19,7 @@ namespace noapi
         uint32_t ymin;
     };
 
-    inline static LiteMath::float4 to_screen_space(const LiteMath::float4 &pos, const BoundingBox2d &viewport)
+    inline LiteMath::float4 to_screen_space(const LiteMath::float4 &pos, const BoundingBox2d &viewport)
     {
         LiteMath::float4 res(pos.x, pos.y, 0, 0);
         //to NDS
@@ -30,7 +30,7 @@ namespace noapi
         return res;
     }
 
-    inline static BoundingBox2d
+    inline BoundingBox2d
     bounding_box_2d(LiteMath::float4 p[3], const BoundingBox2d &viewport)
     {
         return 
@@ -42,19 +42,19 @@ namespace noapi
         };
     }
 
-    inline static float
+    inline float
     edge_function(const LiteMath::float4& a, const LiteMath::float4& b, const LiteMath::float4& p)
     {
         return (p.y-a.y) * (b.x - a.x) - (p.x-a.x) * (b.y-a.y);
     }
 
-    inline static bool
+    inline bool
     inside_of_triangle(LiteMath::float3 &barycentric)
     {
         return barycentric[0] >= 0 && barycentric[1] >= 0 && barycentric[2] >= 0;
     }
 
-    inline static bool 
+    inline bool 
     z_test( //change z_buffer side effect
             uint x, uint y, 
             float cur_z,
