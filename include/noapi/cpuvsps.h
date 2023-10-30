@@ -5,6 +5,7 @@
 
 #include <noapi/IShader.h>
 #include <noapi/integer_sequence.h>
+#include <noapi/vsps_auto_interpolate.h>
 
 #include <LiteMath.h>
 #include <Image2d.h>
@@ -186,7 +187,7 @@ namespace noapi
                             && z_test(x, y, interpolated_1_w, fb.zbuf) 
                             && fb.color_buf) {
                         uint inversed_y = fb.color_buf->height() - y;
-                        VariablesData interpolated = Shader::interpolate(vd, barycentric, interpolated_1_w);
+                        VariablesData interpolated = Interpolator<Shader>::interpolate(vd, barycentric, interpolated_1_w);
                         LiteMath::float4 res = Shader::pixel_shader(interpolated, uniforms) * 255.0f;
                         (*fb.color_buf)[LiteMath::uint2{x, inversed_y}] = LiteMath::uchar4
                         { 
