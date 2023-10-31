@@ -10,7 +10,7 @@ template<size_t index> auto get() const -> decltype(noapi::choose<index>(__VA_AR
 static const size_t interp_count = std::tuple_size<decltype(std::tie(__VA_ARGS__))>::value;
 
 attribute_checker(HasMethodInterpolate, &(Type::interpolate));
-attribute_checker(HasMethodGet, Type().template get<0>());
+attribute_checker(HasMethodGet, Type::interp_count);
 attribute_checker(HasAttribDefaultIndex, Type::default_index);
 
 template<typename T, bool = HasAttribDefaultIndex<T>::value>

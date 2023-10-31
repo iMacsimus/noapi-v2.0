@@ -68,7 +68,7 @@ struct ShadowMapShader
     struct VariablesData
     {
         float4 vPos;
-        auto_interpolate(vPos)
+        auto_interpolate()
     };
     static 
     VariablesData vertex_shader(InputData input, const Uniforms &uniforms)
