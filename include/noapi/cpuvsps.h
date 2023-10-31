@@ -6,6 +6,7 @@
 #include <noapi/IShader.h>
 #include <noapi/integer_sequence.h>
 #include <noapi/vsps_auto_interpolate.h>
+#include <noapi/vsps_auto_fetch.h>
 
 #include <LiteMath.h>
 #include <Image2d.h>
@@ -95,11 +96,11 @@ namespace noapi
         template<typename... Args, size_t... indices>
         InputData fetch_helper(uint32_t i, InputData(*)(uint32_t, Args*...), noapi::index_sequence<indices...>)
         {
-            return Shader::vertex_fetch(i, (Args*)ptrs[indices]...);
+            return Fetcher<Shader>::vertex_fetch(i, (Args*)ptrs[indices]...);
         }
         InputData fetch(uint32_t i)
         {
-            return fetch_helper(i, Shader::vertex_fetch, noapi::make_index_sequence<ptrs_count(Shader::vertex_fetch)>());
+            return fetch_helper(i, Fetcher<Shader>::vertex_fetch, noapi::make_index_sequence<ptrs_count(Fetcher<Shader>::vertex_fetch)>());
         }
     public:
         void set_viewport(uint32_t xstart, uint32_t ystart, uint32_t xend, uint32_t yend) override

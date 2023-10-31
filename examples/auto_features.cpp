@@ -15,6 +15,7 @@ struct TexturedShader
     struct InputData
     {
         float4 aPos; float2 aTexCoords;
+        auto_fetch(float4, float2)
     };
     struct Uniforms
     {
@@ -29,11 +30,6 @@ struct TexturedShader
         float2 vTexCoords; float4 vPosLightView; float4 vPos;
         auto_interpolate(vTexCoords, vPosLightView, vPos)
     };
-    static
-    InputData vertex_fetch(uint32_t i, float4 *positions, float2 *tex_coords)
-    {
-        return InputData { positions[i], tex_coords[i] };
-    }
     static
     VariablesData vertex_shader(InputData input, const Uniforms &uniforms)
     {
@@ -66,17 +62,13 @@ struct ShadowMapShader
     struct InputData
     {
         float4 aPos;
+        auto_fetch(float4)
     };
     struct Uniforms { float4x4 view; float4x4 projection; };
     struct VariablesData
     {
         float4 vPos;
         auto_interpolate(vPos)
-    };
-    static 
-    InputData vertex_fetch(uint32_t i, float4 *positions)
-    {
-        return InputData { positions[i] };
     };
     static 
     VariablesData vertex_shader(InputData input, const Uniforms &uniforms)

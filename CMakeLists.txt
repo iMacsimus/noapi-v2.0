@@ -11,6 +11,7 @@ set(HEADERS include/noapi/cpuvsps.h
             include/noapi/tuple_repr.h
             include/noapi/attribute_checker.h
             include/noapi/vsps_auto_interpolate.h
+            include/noapi/vsps_auto_fetch.h
             include/noapi/choose.h
     )
 set(SOURCE src/dummy.cpp)
