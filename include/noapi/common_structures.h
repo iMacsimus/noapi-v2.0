@@ -22,4 +22,10 @@ namespace noapi
         CULL_FRONT = 1,
         DO_NOT_CULL = 2
     };
+
+    enum 
+    {
+        OFF,
+        ON
+    };
 }

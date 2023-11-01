@@ -7,6 +7,7 @@
 #include <noapi/integer_sequence.h>
 #include <noapi/vsps_auto_interpolate.h>
 #include <noapi/vsps_auto_fetch.h>
+#include <noapi/vsps_clipping.h>
 
 #include <LiteMath.h>
 #include <Image2d.h>
@@ -85,6 +86,8 @@ namespace noapi
         Uniforms uniforms;
         BoundingBox2d viewport;
         std::vector<TriangleSet> triangles;
+        std::vector<TriangleSet> addtitional;
+        bool clipping_enabled = false;
         CullingMode culling_mode = DO_NOT_CULL;
     public:
         template<typename... Args>
@@ -115,10 +118,16 @@ namespace noapi
         {
             culling_mode = mode;
         }
+        void set_clipping(bool enable)
+        {
+            clipping_enabled = enable;
+        }
         void draw_triangles(size_t elements_count, Framebuffer fb) override
         {
-            triangles.reserve(std::max(triangles.capacity(), elements_count));
+            triangles.reserve(std::max(triangles.capacity(), elements_count/3));
+            addtitional.reserve(std::max(addtitional.capacity(), elements_count/3*2));
             triangles.clear();
+            addtitional.clear();
             
             auto *color_buffer = fb.color_buf;
             auto *z_buffer = fb.zbuf;
@@ -132,6 +141,15 @@ namespace noapi
                 cur.variables[1] = Shader::vertex_shader(fetch(indices[3*tindex+1]), uniforms);
                 cur.variables[2] = Shader::vertex_shader(fetch(indices[3*tindex+2]), uniforms);
             }
+
+            if (clipping_enabled) {
+                for (auto &tr : triangles) {
+                    auto res = vs_to_ts(clip<Shader>(tr.variables));
+                    addtitional.insert(addtitional.end(), res.begin(), res.end());
+                }
+                triangles = addtitional;
+            }
+
             for (auto &tr : triangles) {
                 LiteMath::float4 sspos[3] = 
                 {
@@ -202,6 +220,16 @@ namespace noapi
                 }
                 Cy1 += J[0]; Cy2 += J[1]; Cy3 += J[2];
             }
+        }
+        std::vector<TriangleSet> vs_to_ts(const std::vector<VariablesData> &vs)
+        {
+            switch (vs.size())
+            {
+            case 0: return {};
+            case 3: return { { vs[0], vs[1], vs[2] } };
+            case 4: return { { vs[0], vs[1], vs[2] }, { vs[2], vs[3], vs[0] } };
+            }
+            return {};
         }
     };
 

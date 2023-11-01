@@ -13,6 +13,7 @@ set(HEADERS include/noapi/cpuvsps.h
             include/noapi/vsps_auto_interpolate.h
             include/noapi/vsps_auto_fetch.h
             include/noapi/choose.h
+            include/noapi/vsps_clipping.h
     )
 set(SOURCE src/dummy.cpp)
 

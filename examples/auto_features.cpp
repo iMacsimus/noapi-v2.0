@@ -106,7 +106,7 @@ int main(int argc, char **argv)
 
     float4x4 view = lookAt(float3(15.76f, 5.76f, -12.0f), float3(0.0f), float3(0.0f, 1.0f, 0.0f));
     float4x4 light_view = lookAt(float3(0.0f, 10.4f, -15.5f), float3(0.0f), float3(0.0f, 1.0f, 0.0f));
-    float4x4 projection = perspectiveMatrix(45, (float)w/h, 0.1f, 100.0f);
+    float4x4 projection = perspectiveMatrix(45, (float)w/h, 13.0f, 30.0f);
 
     TexturedShader::Uniforms floor_uniforms = 
     {
@@ -135,8 +135,10 @@ int main(int argc, char **argv)
     auto tex_shader = make_cpu_vsps_shader<TexturedShader>(argv[0]);
     tex_shader->set_viewport(0, 0, w, h);
     tex_shader->set_culling(CULL_BACK);
+    tex_shader->set_clipping(ON);
     auto sm_shader = make_cpu_vsps_shader<ShadowMapShader>(argv[0]);
     sm_shader->set_viewport(0, 0, shadowmap_resolution, shadowmap_resolution);
+    sm_shader->set_clipping(ON);
 
     float sum = 0;
     int count = 100;
