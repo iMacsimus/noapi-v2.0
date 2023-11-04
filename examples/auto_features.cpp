@@ -104,9 +104,9 @@ int main(int argc, char **argv)
     auto box_texture = std::make_shared<Image2D<uint>>(LoadImage<uint>((rsc_path+"box.bmp").data()));
     auto shadow_map = std::make_shared<Image2D<float>>(shadowmap_resolution, shadowmap_resolution);
 
-    float4x4 view = lookAt(float3(15.76f, 5.76f, -12.0f), float3(0.0f), float3(0.0f, 1.0f, 0.0f));
+    float4x4 view = lookAt(float3(5.76f, 5.76f, 5.0f), float3(0.0f), float3(0.0f, 1.0f, 0.0f));
     float4x4 light_view = lookAt(float3(0.0f, 10.4f, -15.5f), float3(0.0f), float3(0.0f, 1.0f, 0.0f));
-    float4x4 projection = perspectiveMatrix(45, (float)w/h, 13.0f, 30.0f);
+    float4x4 projection = perspectiveMatrix(45, (float)w/h, 0.1f, 100.0f);
 
     TexturedShader::Uniforms floor_uniforms = 
     {

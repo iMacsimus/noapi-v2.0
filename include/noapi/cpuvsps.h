@@ -16,10 +16,10 @@ namespace noapi
 {
     struct BoundingBox2d 
     {  
-        uint32_t xmax; 
-        uint32_t xmin; 
-        uint32_t ymax; 
-        uint32_t ymin;
+        int32_t xmax; 
+        int32_t xmin; 
+        int32_t ymax; 
+        int32_t ymin;
     };
 
     inline LiteMath::float4 to_screen_space(const LiteMath::float4 &pos, const BoundingBox2d &viewport)
@@ -38,10 +38,10 @@ namespace noapi
     {
         return 
         {
-            LiteMath::clamp((uint)std::max(p[0].x, std::max(p[1].x, p[2].x)), viewport.xmin, viewport.xmax-1), //xmax
-            LiteMath::clamp((uint)std::min(p[0].x, std::min(p[1].x, p[2].x)), viewport.xmin, viewport.xmax-1), //xmin
-            LiteMath::clamp((uint)std::max(p[0].y, std::max(p[1].y, p[2].y)), viewport.ymin, viewport.ymax-1), //ymax
-            LiteMath::clamp((uint)std::min(p[0].y, std::min(p[1].y, p[2].y)), viewport.ymin, viewport.ymax-1) //ymin
+            LiteMath::clamp((int32_t)std::max(p[0].x, std::max(p[1].x, p[2].x)), viewport.xmin, viewport.xmax-1), //xmax
+            LiteMath::clamp((int32_t)std::min(p[0].x, std::min(p[1].x, p[2].x)), viewport.xmin, viewport.xmax-1), //xmin
+            LiteMath::clamp((int32_t)std::max(p[0].y, std::max(p[1].y, p[2].y)), viewport.ymin, viewport.ymax-1), //ymax
+            LiteMath::clamp((int32_t)std::min(p[0].y, std::min(p[1].y, p[2].y)), viewport.ymin, viewport.ymax-1) //ymin
         };
     }
 
@@ -106,7 +106,7 @@ namespace noapi
             return fetch_helper(i, Fetcher<Shader>::vertex_fetch, noapi::make_index_sequence<ptrs_count(Fetcher<Shader>::vertex_fetch)>());
         }
     public:
-        void set_viewport(uint32_t xstart, uint32_t ystart, uint32_t xend, uint32_t yend) override
+        void set_viewport(int32_t xstart, int32_t ystart, int32_t xend, int32_t yend) override
         {
             viewport = { xend, xstart, yend, ystart };
         }
@@ -205,7 +205,7 @@ namespace noapi
                     if (inside_of_triangle(barycentric)
                             && z_test(x, y, interpolated_1_w, fb.zbuf) 
                             && fb.color_buf) {
-                        uint inversed_y = fb.color_buf->height() - y;
+                        uint inversed_y = fb.color_buf->height() - y - 1;
                         VariablesData interpolated = Interpolator<Shader>::interpolate(vd, barycentric, interpolated_1_w);
                         LiteMath::float4 res = Shader::pixel_shader(interpolated, uniforms) * 255.0f;
                         (*fb.color_buf)[LiteMath::uint2{x, inversed_y}] = LiteMath::uchar4
