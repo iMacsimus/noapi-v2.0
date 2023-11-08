@@ -28,7 +28,7 @@ struct TexturedShader
     struct VariablesData
     {
         float2 vTexCoords; float4 vPosLightView; float4 vPos;
-        auto_interpolate(vTexCoords, vPosLightView, vPos)
+        auto_interpolate(vTexCoords, vPosLightView)
     };
     static
     VariablesData vertex_shader(InputData input, const Uniforms &uniforms)
@@ -141,7 +141,7 @@ int main(int argc, char **argv)
     sm_shader->set_clipping(ON);
 
     float sum = 0;
-    int count = 100;
+    int count = 1;
     for (int i = 0; i < count; ++i) {
         color_buffer.clear(uchar4{ 50, 50, 50, 255 }.u32);
         z_buf.clear(0);
