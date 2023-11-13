@@ -28,8 +28,8 @@ namespace noapi
         //to NDS
         res /= pos.w;
         //from DNS to screen space
-        res = (res+1) * LiteMath::float4(viewport.xmax-viewport.xmin, viewport.ymax-viewport.ymin, 0, 0) / 2 + 
-                LiteMath::float4(viewport.xmin, viewport.ymin, 1.0f/pos.w, 0);
+        res = (res+1) * LiteMath::float4((float)(viewport.xmax-viewport.xmin), (float)(viewport.ymax-viewport.ymin), 0.0f, 0.0f) / 2.0f + 
+                LiteMath::float4((float)viewport.xmin, (float)viewport.ymin, 1.0f/pos.w, 0.0f);
         return res;
     }
 

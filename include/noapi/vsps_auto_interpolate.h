@@ -87,8 +87,9 @@ namespace noapi {
         using VariablesData = typename Shader::VariablesData;
         static VariablesData lerp(const VariablesData &v1, const VariablesData &v2, float ratio)
         {
-            
-            VariablesData arr[3] = { v1, v2, VariablesData{ .vPos = LiteMath::float4(1.0f, 1.0f, 1.0f, 1.0f) } };
+            VariablesData v3;
+            v3.vPos = LiteMath::float4(1.0f);
+            VariablesData arr[3] = { v1, v2, v3 };
             LiteMath::float3 barycentric = { v1.vPos.w * (1.0f - ratio), v2.vPos.w * ratio, 0.0f };
             auto result = Interpolator<Shader>::interpolate(arr, barycentric, 1.0f);
             result.vPos = v1.vPos * (1.0f - ratio) + v2.vPos * ratio;
