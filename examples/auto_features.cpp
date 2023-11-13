@@ -141,7 +141,7 @@ int main(int argc, char **argv)
     sm_shader->set_clipping(ON);
 
     float sum = 0;
-    int count = 1;
+    int count = 100;
     for (int i = 0; i < count; ++i) {
         color_buffer.clear(uchar4{ 50, 50, 50, 255 }.u32);
         z_buf.clear(0);

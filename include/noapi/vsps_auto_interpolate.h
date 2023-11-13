@@ -21,6 +21,12 @@ namespace noapi {
         static const size_t value = T::default_index;
     };
 
+    struct expand_t
+    {
+        template<typename... Args>
+        expand_t(Args...) {}
+    };
+
     template<typename T>
     struct DefaultIndex<T, false>
     {
@@ -41,11 +47,11 @@ namespace noapi {
                 float interpolated_1_w)
         {
             VariablesData res = data[DefaultIndex<VariablesData>::value];
-            int dummy[] = 
+            expand_t
             { 
                 (res.template get<indices>() = (data[0].template get<indices>() * (barycentric[0]/data[0].vPos.w)
                         + data[1].template get<indices>() * (barycentric[1]/data[1].vPos.w)
-                        + data[2].template get<indices>() * (barycentric[2]/data[2].vPos.w)) * (1.0 / interpolated_1_w), 0)...
+                        + data[2].template get<indices>() * (barycentric[2]/data[2].vPos.w)) * (1.0f / interpolated_1_w), 0)...
             };
             return res;
         }

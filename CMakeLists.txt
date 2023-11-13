@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.8)
 project(noapi)
 
 set(CMAKE_CXX_STANDART 11)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O3")
 
 set(HEADERS include/noapi/cpuvsps.h
             include/noapi/common_structures.h

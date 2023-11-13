@@ -59,7 +59,7 @@ namespace noapi
 
     inline bool 
     z_test( //change z_buffer side effect
-            uint x, uint y, 
+            uint32_t x, uint32_t y, 
             float cur_z,
             LiteImage::Image2D<float> *z_buf)
     {
@@ -118,7 +118,7 @@ namespace noapi
         {
             culling_mode = mode;
         }
-        void set_clipping(bool enable)
+        void set_clipping(bool enable) override
         {
             clipping_enabled = enable;
         }
@@ -131,8 +131,6 @@ namespace noapi
             
             auto *color_buffer = fb.color_buf;
             auto *z_buffer = fb.zbuf;
-            uint width = (color_buffer) ? color_buffer->width() : z_buffer->width();
-            uint height = (color_buffer) ? color_buffer->height() : z_buffer->height();
 
             for (uint32_t tindex = 0; tindex < elements_count / 3; ++tindex) {
                 triangles.push_back({});
@@ -197,9 +195,9 @@ namespace noapi
             I[0] /= tr_square; I[1] /= tr_square; I[2] /= tr_square;
             J[0] /= tr_square; J[1] /= tr_square; J[2] /= tr_square;
             Cy1 /= tr_square; Cy2 /= tr_square; Cy3 /= tr_square;
-            for (uint y = bb.ymin; y <= bb.ymax; ++y) {
+            for (uint32_t y = (uint32_t)bb.ymin; y <= (uint32_t)bb.ymax; ++y) {
                 float Cx1 = Cy1, Cx2 = Cy2, Cx3 = Cy3;
-                for (uint x = bb.xmin; x <= bb.xmax; ++x) {
+                for (uint32_t x = (uint32_t)bb.xmin; x <= (uint32_t)bb.xmax; ++x) {
                     LiteMath::float3 barycentric = { Cx1, Cx2, Cx3 };
                     float interpolated_1_w = sspos[0].z * barycentric[0] + sspos[1].z * barycentric[1] + sspos[2].z * barycentric[2];
                     if (inside_of_triangle(barycentric)
