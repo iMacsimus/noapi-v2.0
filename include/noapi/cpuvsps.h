@@ -234,7 +234,6 @@ namespace noapi
     template<typename Shader>
     std::shared_ptr<IShader> make_cpu_vsps_shader(const char *impl_path)
     {
-        Shader(); // to define static methods
         return std::make_shared<ShaderWrapper<Shader>>();
     };
 }
