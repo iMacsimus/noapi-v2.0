@@ -12,6 +12,8 @@
 #include <LiteMath.h>
 #include <Image2d.h>
 
+#include <omp.h>
+
 namespace noapi
 {
     struct BoundingBox2d 
@@ -129,9 +131,6 @@ namespace noapi
             triangles.clear();
             addtitional.clear();
             
-            auto *color_buffer = fb.color_buf;
-            auto *z_buffer = fb.zbuf;
-
             for (uint32_t tindex = 0; tindex < elements_count / 3; ++tindex) {
                 triangles.push_back({});
                 auto &cur = triangles.back();
@@ -195,8 +194,10 @@ namespace noapi
             I[0] /= tr_square; I[1] /= tr_square; I[2] /= tr_square;
             J[0] /= tr_square; J[1] /= tr_square; J[2] /= tr_square;
             Cy1 /= tr_square; Cy2 /= tr_square; Cy3 /= tr_square;
+
+            #pragma omp parallel for
             for (uint32_t y = (uint32_t)bb.ymin; y <= (uint32_t)bb.ymax; ++y) {
-                float Cx1 = Cy1, Cx2 = Cy2, Cx3 = Cy3;
+                float Cx1 = Cy1 + J[0]*(y-bb.ymin), Cx2 = Cy2 + J[1]*(y-bb.ymin), Cx3 = Cy3 + J[2]*(y-bb.ymin);
                 for (uint32_t x = (uint32_t)bb.xmin; x <= (uint32_t)bb.xmax; ++x) {
                     LiteMath::float3 barycentric = { Cx1, Cx2, Cx3 };
                     float interpolated_1_w = sspos[0].z * barycentric[0] + sspos[1].z * barycentric[1] + sspos[2].z * barycentric[2];
@@ -216,7 +217,6 @@ namespace noapi
                     }
                     Cx1 += I[0]; Cx2 += I[1]; Cx3 += I[2];
                 }
-                Cy1 += J[0]; Cy2 += J[1]; Cy3 += J[2];
             }
         }
         std::vector<TriangleSet> vs_to_ts(const std::vector<VariablesData> &vs)

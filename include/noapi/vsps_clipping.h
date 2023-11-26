@@ -10,7 +10,6 @@ namespace noapi
     template<typename Shader>
     std::vector<typename Shader::VariablesData> clip(const typename Shader::VariablesData data[3])
     {
-        using VariablesData = typename Shader::VariablesData;
         bool is_inside[3] = 
         {
             data[0].vPos.z >= -data[0].vPos.w,
