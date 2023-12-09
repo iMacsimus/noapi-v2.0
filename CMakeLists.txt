@@ -30,7 +30,8 @@ target_include_directories(obj_loader PUBLIC external/litemath examples/utils/ob
 add_executable(simple_triangle examples/simple_triangle.cpp)
 target_link_libraries(simple_triangle PUBLIC ${PROJECT_NAME})
 
-add_executable(textured_cube examples/textured_cube.cpp)
+add_executable(textured_cube examples/textured_cube.cpp 
+                             examples/textured_cube_alg.cpp)
 target_link_libraries(textured_cube PUBLIC ${PROJECT_NAME} obj_loader)
 
 add_executable(shadowed_scene examples/shadowed_scene.cpp)
