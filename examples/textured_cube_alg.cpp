@@ -12,17 +12,17 @@ TexturedShader::InputData TexturedShader::vertex_fetch(uint32_t i) const
   return InputData { positions[vIndex], tex_coords[vIndex] };
 }
 
-TexturedShader::VariablesData TexturedShader::vertex_shader(InputData input, const Uniforms &uniforms) const
+TexturedShader::VariablesData TexturedShader::vertex_shader(InputData input) const
 {
   VariablesData out;
-  out.vPos = uniforms.projection * uniforms.view * input.aPos;
+  out.vPos = projection * view * input.aPos;
   out.vTexCoords = input.aTexCoords;
   return out;
 }
 
-float4 TexturedShader::pixel_shader(VariablesData in, const Uniforms &uniforms) const
+float4 TexturedShader::pixel_shader(VariablesData in) const
 { 
-  float4 color = uniforms.sampler->sample(in.vTexCoords);
+  float4 color = sampler->sample(in.vTexCoords);
   color.w = 1.0f;
   return color;
 }

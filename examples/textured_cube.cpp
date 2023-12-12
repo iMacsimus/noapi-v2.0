@@ -33,18 +33,14 @@ int main(int argc, char **argv)
     Mesh& cube = scn.meshes["Cube"];
     size_t indices_count = cube.indices.size();
 
-    auto shader  = std::make_shared<TexturedShader>(cube.vertices.data(), cube.tex_coords.data(), cube.indices.data());
-    auto program = make_cpu_vsps_shader<TexturedShader>(argv[0], shader);
-    //program->set_vertex_arrays(cube.vertices.data(), cube.tex_coords.data());
-    //program->set_index_array(cube.indices.data());
-    program->set_viewport(0, 0, w, h);
-    program->set_culling(CULL_BACK);
+    auto shader        = std::make_shared<TexturedShader>(cube.vertices.data(), cube.tex_coords.data(), cube.indices.data());
+    shader->view       = lookAt(float3(5.0f, 2.0f, 5.0f), float3(0.0f), float3(0.0f, 1.0f, 0.0f));
+    shader->projection = perspectiveMatrix(45, (float)w/h, 0.1f, 100.0f);
+    shader->sampler    = MakeCombinedTexture2D(img, img_sampler);
 
-    TexturedShader::Uniforms uniforms;
-    uniforms.view = lookAt(float3(5.0f, 2.0f, 5.0f), float3(0.0f), float3(0.0f, 1.0f, 0.0f));
-    uniforms.projection = perspectiveMatrix(45, (float)w/h, 0.1f, 100.0f);
-    uniforms.sampler = MakeCombinedTexture2D(img, img_sampler);
-    program->set_uniform(&uniforms);
+    auto rasterizer = make_cpu_vsps_shader(argv[0], shader); // or pipeline
+    rasterizer->set_viewport(0, 0, w, h);
+    rasterizer->set_culling(CULL_BACK);
 
     float sum = 0;
     int count = 100;
@@ -52,7 +48,7 @@ int main(int argc, char **argv)
         z_buf.clear(0);
         color_buffer.clear(0);
         auto b = std::chrono::high_resolution_clock::now();
-        program->draw_triangles(indices_count, fb);
+        rasterizer->draw_triangles(indices_count, fb);
         auto e = std::chrono::high_resolution_clock::now();
         sum += std::chrono::duration_cast<std::chrono::microseconds>(e-b).count() / 1000.0f;
     }

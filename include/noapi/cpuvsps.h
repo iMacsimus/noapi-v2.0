@@ -78,14 +78,11 @@ namespace noapi
     public:
         ShaderWrapper(std::shared_ptr<Shader> a_pShader) : m_pShaderObj(a_pShader) {}
         using VariablesData = typename Shader::VariablesData;
-        using Uniforms = typename Shader::Uniforms;
-        using InputData = typename Shader::InputData; 
         struct TriangleSet
         {
             VariablesData variables[3];
         };
     public:
-        Uniforms uniforms;
         BoundingBox2d viewport;
         std::vector<TriangleSet> triangles;
         std::vector<TriangleSet> addtitional;
@@ -95,10 +92,6 @@ namespace noapi
         void set_viewport(int32_t xstart, int32_t ystart, int32_t xend, int32_t yend) override
         {
             viewport = { xend, xstart, yend, ystart };
-        }
-        void set_uniform(void *uniform_struct_ptr) override 
-        {
-            uniforms = *(Uniforms*)uniform_struct_ptr;
         }
         void set_culling(CullingMode mode) override
         {
@@ -122,9 +115,9 @@ namespace noapi
                 triangles.push_back({});
                 auto &cur = triangles.back();
 
-                cur.variables[0] = m_pShaderObj->vertex_shader(m_pShaderObj->vertex_fetch(3*tindex+0), uniforms);
-                cur.variables[1] = m_pShaderObj->vertex_shader(m_pShaderObj->vertex_fetch(3*tindex+1), uniforms);
-                cur.variables[2] = m_pShaderObj->vertex_shader(m_pShaderObj->vertex_fetch(3*tindex+2), uniforms);
+                cur.variables[0] = m_pShaderObj->vertex_shader(m_pShaderObj->vertex_fetch(3*tindex+0));
+                cur.variables[1] = m_pShaderObj->vertex_shader(m_pShaderObj->vertex_fetch(3*tindex+1));
+                cur.variables[2] = m_pShaderObj->vertex_shader(m_pShaderObj->vertex_fetch(3*tindex+2));
             }
 
             if (clipping_enabled) {
@@ -192,7 +185,7 @@ namespace noapi
                             && fb.color_buf) {
                         uint inversed_y = fb.color_buf->height() - y - 1;
                         VariablesData interpolated = m_pShaderObj->interpolate(vd, barycentric, interpolated_1_w);
-                        LiteMath::float4 res       = m_pShaderObj->pixel_shader(interpolated, uniforms) * 255.0f;
+                        LiteMath::float4 res       = m_pShaderObj->pixel_shader(interpolated) * 255.0f;
                         (*fb.color_buf)[LiteMath::uint2{x, inversed_y}] = LiteMath::uchar4
                         { 
                             (LiteMath::uchar)res.x, 
