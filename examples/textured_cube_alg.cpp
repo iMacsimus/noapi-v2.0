@@ -8,8 +8,11 @@ using namespace LiteImage;
 
 TexturedShader::InputData TexturedShader::vertex_fetch(uint32_t i) const
 {
-  const unsigned int vIndex = indices[i];
-  return InputData { positions[vIndex], tex_coords[vIndex] };
+  InputData res;
+  const uint vIndex = indices[i];
+  res.aPos          = positions[vIndex];
+  res.aTexCoords    = tex_coords[vIndex];
+  return res;
 }
 
 TexturedShader::VariablesData TexturedShader::vertex_shader(InputData input) const
@@ -29,7 +32,7 @@ float4 TexturedShader::pixel_shader(VariablesData in) const
 
 TexturedShader::VariablesData TexturedShader::interpolate(const VariablesData data[3], const LiteMath::float3 &barycentric, float interpolated_1_w) const
 {
-  TexturedShader::VariablesData res;
+  VariablesData res;
   res.vTexCoords = (data[0].vTexCoords / data[0].vPos.w * barycentric[0] + 
                     data[1].vTexCoords / data[1].vPos.w * barycentric[1] + 
                     data[2].vTexCoords / data[2].vPos.w * barycentric[2]) / interpolated_1_w;
