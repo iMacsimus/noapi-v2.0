@@ -1,5 +1,6 @@
 #include <iostream>
 #include <chrono>
+#include <memory>
 
 #include <Image2d.h>
 
@@ -32,9 +33,10 @@ int main(int argc, char **argv)
     Mesh& cube = scn.meshes["Cube"];
     size_t indices_count = cube.indices.size();
 
-    auto program = make_cpu_vsps_shader<TexturedShader>(argv[0]);
-    program->set_vertex_arrays(cube.vertices.data(), cube.tex_coords.data());
-    program->set_index_array(cube.indices.data());
+    auto shader  = std::make_shared<TexturedShader>(cube.vertices.data(), cube.tex_coords.data(), cube.indices.data());
+    auto program = make_cpu_vsps_shader<TexturedShader>(argv[0], shader);
+    //program->set_vertex_arrays(cube.vertices.data(), cube.tex_coords.data());
+    //program->set_index_array(cube.indices.data());
     program->set_viewport(0, 0, w, h);
     program->set_culling(CULL_BACK);
 

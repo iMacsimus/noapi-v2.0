@@ -74,7 +74,9 @@ namespace noapi
     template<typename Shader>
     struct ShaderWrapper : IShader
     {
+        std::shared_ptr<Shader> m_pShaderObj;
     public:
+        ShaderWrapper(std::shared_ptr<Shader> a_pShader) : m_pShaderObj(a_pShader) {}
         using VariablesData = typename Shader::VariablesData;
         using Uniforms = typename Shader::Uniforms;
         using InputData = typename Shader::InputData; 
@@ -89,22 +91,6 @@ namespace noapi
         std::vector<TriangleSet> addtitional;
         bool clipping_enabled = false;
         CullingMode culling_mode = DO_NOT_CULL;
-    public:
-        template<typename... Args>
-        static constexpr size_t 
-        ptrs_count(InputData(*)(uint32_t, Args*...))
-        {
-            return sizeof...(Args);
-        }
-        template<typename... Args, size_t... indices>
-        InputData fetch_helper(uint32_t i, InputData(*)(uint32_t, Args*...), noapi::index_sequence<indices...>)
-        {
-            return Fetcher<Shader>::vertex_fetch(i, (Args*)ptrs[indices]...);
-        }
-        InputData fetch(uint32_t i)
-        {
-            return fetch_helper(i, Fetcher<Shader>::vertex_fetch, noapi::make_index_sequence<ptrs_count(Fetcher<Shader>::vertex_fetch)>());
-        }
     public:
         void set_viewport(int32_t xstart, int32_t ystart, int32_t xend, int32_t yend) override
         {
@@ -135,14 +121,15 @@ namespace noapi
             for (uint32_t tindex = 0; tindex < elements_count / 3; ++tindex) {
                 triangles.push_back({});
                 auto &cur = triangles.back();
-                cur.variables[0] = Shader::vertex_shader(fetch(indices[3*tindex+0]), uniforms);
-                cur.variables[1] = Shader::vertex_shader(fetch(indices[3*tindex+1]), uniforms);
-                cur.variables[2] = Shader::vertex_shader(fetch(indices[3*tindex+2]), uniforms);
+
+                cur.variables[0] = m_pShaderObj->vertex_shader(m_pShaderObj->vertex_fetch(3*tindex+0), uniforms);
+                cur.variables[1] = m_pShaderObj->vertex_shader(m_pShaderObj->vertex_fetch(3*tindex+1), uniforms);
+                cur.variables[2] = m_pShaderObj->vertex_shader(m_pShaderObj->vertex_fetch(3*tindex+2), uniforms);
             }
 
             if (clipping_enabled) {
                 for (auto &tr : triangles) {
-                    auto res = vs_to_ts(clip<Shader>(tr.variables));
+                    auto res = vs_to_ts(clip<Shader>(tr.variables, m_pShaderObj.get()));
                     addtitional.insert(addtitional.end(), res.begin(), res.end());
                 }
                 triangles = addtitional;
@@ -204,8 +191,8 @@ namespace noapi
                             && z_test(x, y, interpolated_1_w, fb.zbuf) 
                             && fb.color_buf) {
                         uint inversed_y = fb.color_buf->height() - y - 1;
-                        VariablesData interpolated = Interpolator<Shader>::interpolate(vd, barycentric, interpolated_1_w);
-                        LiteMath::float4 res = Shader::pixel_shader(interpolated, uniforms) * 255.0f;
+                        VariablesData interpolated = m_pShaderObj->interpolate(vd, barycentric, interpolated_1_w);
+                        LiteMath::float4 res       = m_pShaderObj->pixel_shader(interpolated, uniforms) * 255.0f;
                         (*fb.color_buf)[LiteMath::uint2{x, inversed_y}] = LiteMath::uchar4
                         { 
                             (LiteMath::uchar)res.x, 
@@ -232,8 +219,8 @@ namespace noapi
     };
 
     template<typename Shader>
-    std::shared_ptr<IShader> make_cpu_vsps_shader(const char *impl_path)
+    std::shared_ptr<IShader> make_cpu_vsps_shader(const char *impl_path, std::shared_ptr<Shader> a_pShader)
     {
-        return std::make_shared<ShaderWrapper<Shader>>();
+        return std::make_shared< ShaderWrapper<Shader> >(a_pShader);
     };
 }
