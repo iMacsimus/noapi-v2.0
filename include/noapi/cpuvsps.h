@@ -4,9 +4,6 @@
 #include <iostream>
 
 #include <noapi/IShader.h>
-#include <noapi/integer_sequence.h>
-#include <noapi/vsps_auto_interpolate.h>
-#include <noapi/vsps_auto_fetch.h>
 #include <noapi/vsps_clipping.h>
 
 #include <LiteMath.h>

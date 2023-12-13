@@ -7,12 +7,7 @@ set(CMAKE_CXX_STANDART 14)
 set(HEADERS include/noapi/cpuvsps.h
             include/noapi/common_structures.h
             include/noapi/IShader.h
-            include/noapi/integer_sequence.h
-            include/noapi/tuple_repr.h
-            include/noapi/attribute_checker.h
-            include/noapi/vsps_auto_interpolate.h
-            include/noapi/vsps_auto_fetch.h
-            include/noapi/choose.h
+            include/noapi/Lerper.h
             include/noapi/vsps_clipping.h
     )
 set(SOURCE src/dummy.cpp)
@@ -27,17 +22,20 @@ target_link_libraries(${PROJECT_NAME} PUBLIC litemath)
 add_library(obj_loader STATIC examples/utils/obj_loader/Mesh.cpp examples/utils/obj_loader/Mesh.h)
 target_include_directories(obj_loader PUBLIC external/litemath examples/utils/obj_loader)
 
-#add_executable(simple_triangle examples/simple_triangle.cpp)
-#target_link_libraries(simple_triangle PUBLIC ${PROJECT_NAME})
+add_executable(simple_triangle  examples/simple_triangle/simple_triangle.cpp
+                                examples/simple_triangle/simple_shader.cpp 
+                                examples/simple_triangle/simple_shader.h)
+target_link_libraries(simple_triangle PUBLIC ${PROJECT_NAME})
 
-add_executable(textured_cube examples/textured_cube.cpp 
-                             examples/textured_cube_alg.cpp)
+add_executable(textured_cube examples/textured_cube/textured_cube.cpp 
+                             examples/textured_cube/textured_cube_alg.cpp)
 target_link_libraries(textured_cube PUBLIC ${PROJECT_NAME} obj_loader)
 
-#add_executable(shadowed_scene examples/shadowed_scene.cpp)
-#target_link_libraries(shadowed_scene PUBLIC ${PROJECT_NAME} obj_loader)
-
-#add_executable(auto_features examples/auto_features.cpp)
-#target_link_libraries(auto_features PUBLIC ${PROJECT_NAME} obj_loader)
+add_executable(shadowed_scene   examples/shadowed_scene/shadowed_scene.cpp
+                                examples/shadowed_scene/tex_shader.cpp
+                                examples/shadowed_scene/tex_shader.h
+                                examples/shadowed_scene/sm_shader.cpp 
+                                examples/shadowed_scene/sm_shader.h)
+target_link_libraries(shadowed_scene PUBLIC ${PROJECT_NAME} obj_loader)
 
 

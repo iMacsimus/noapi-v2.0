@@ -3,7 +3,7 @@
 #include <vector>
 #include <iostream>
 #include <LiteMath.h>
-#include <noapi/vsps_auto_interpolate.h>
+#include <noapi/Lerper.h>
 
 namespace noapi 
 {
